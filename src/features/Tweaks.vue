@@ -99,8 +99,11 @@ import Section from "../components/Section.vue";
       zypper addrepo
       https://download.opensuse.org/repositories/home:DenysMadureira/openSUSE_Tumbleweed/home:DenysMadureira.repo
     </code>
-    <code>
-      sudo transactional-update -c pkg install --repo home_DenysMadureira flatpak</code
+    <code
+      >sudo transactional-update -c shell
+      <br />
+      zypper dup --allow-vendor-change
+      </code
     >
 
     <h2 id="add-dictionaries">Add dictionaries</h2>
@@ -162,6 +165,16 @@ import Section from "../components/Section.vue";
       <br />
       systemctl enable mariadb
       </code
+    >
+
+    <h2 id="install-drive">Install and enable Google Drive integration</h2>
+
+    <p>
+      For being able to use KDE Plasma + Google Drive native integration you should install the following packages.
+    </p>
+
+    <code
+      >sudo transactional-update -c pkg install kaccounts-integration kaccounts-providers kio-gdrive</code
     >
   </Section>
 
