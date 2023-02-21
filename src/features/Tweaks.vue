@@ -144,6 +144,25 @@ import Section from "../components/Section.vue";
     <code
       >sudo transactional-update -c pkg install plymouth plymouth-branding-openSUSE</code
     >
+
+    <h2 id="install-akonadi">Install Akonadi suite</h2>
+
+    <p>
+      If you want, you can install KMail, Kalendar and Akregator to have the essential apps from Akonadi suite.
+    </p>
+
+    <code
+      >sudo transactional-update -c shell
+      <br />
+      zypper --non-interactive al ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook knotes korganizer 
+      <br />
+      zypper --non-interactive install --recommends akregator kmail kalendar
+      <br />
+      zypper --non-interactive rl ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook knotes korganizer
+      <br />
+      systemctl enable mariadb
+      </code
+    >
   </Section>
 
   <Section title="Tricks" subtitle="And here are some">
