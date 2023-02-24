@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Section from "../components/Section.vue";
+import Section from '../components/Section.vue'
 </script>
 
 <template>
   <Section title="Tweaks and Tricks" subtitle="Let's do some hacking with">
     <div class="presentation">
       <p>
-        To make the best of any system, sometimes we need to do some "hacking" with tweaks
-        and "mess with configuration".
+        To make the best of any system, sometimes we need to do some "hacking" with tweaks and "mess with
+        configuration".
       </p>
       <p>Here I'll show you what I usually do to make the best of my MicroOS + KDE.</p>
     </div>
@@ -17,9 +17,8 @@ import Section from "../components/Section.vue";
     <h2 id="proton-wine">To run Proton/Wine games</h2>
 
     <p>
-      If you want to be able to play some Proton/Wine games, you will need to run this on
-      terminal. This will set the right permission to SELinux, so it will prevent to block
-      them.
+      If you want to be able to play some Proton/Wine games, you will need to run this on terminal. This will set the
+      right permission to SELinux, so it will prevent to block them.
     </p>
 
     <code> sudo setsebool -P selinuxuser_execmod 1 </code>
@@ -30,44 +29,36 @@ import Section from "../components/Section.vue";
 
     <p>To install NVIDIA drivers first you need to add the repositories by running:</p>
 
-    <code>
-      zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA
-    </code>
+    <code> zypper addrepo --refresh https://download.nvidia.com/opensuse/tumbleweed NVIDIA </code>
 
     <p>Then you can install the drivers with:</p>
 
-    <code>
-      sudo transactional-update -c pkg install x11-video-nvidiaG06 nvidia-glG06
-    </code>
+    <code> sudo transactional-update -c pkg install x11-video-nvidiaG06 nvidia-glG06 </code>
 
     <p class="important">
       Please make sure to check the correct driver here in the
-      <strong
-        ><a href="https://en.opensuse.org/SDB:NVIDIA_drivers#Install"
-          >openSUSE official documentation</a
-        ></strong
-      >
+      <strong>
+        <a href="https://en.opensuse.org/SDB:NVIDIA_drivers#Install"> openSUSE official documentation </a>
+      </strong>
     </p>
 
     <p>
-      If you have Optimus laptop and want ability to switch between NVIDIA and Intel/AMD
-      GPUs, you can create an alias in your <em>~/.bashrc</em> file and just run the
-      application that you want to run with NVIDIA GPU with <em>prime-run COMMAND</em>
+      If you have Optimus laptop and want ability to switch between NVIDIA and Intel/AMD GPUs, you can create an alias
+      in your <em>~/.bashrc</em> file and just run the application that you want to run with NVIDIA GPU with
+      <em>prime-run COMMAND</em>
     </p>
 
-    <code
-      >alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only
-      __GLX_VENDOR_LIBRARY_NAME=nvidia"</code
-    >
+    <code>
+      alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia"
+    </code>
 
     <h3 id="amd">AMD</h3>
 
     <p>To install AMD drivers you can run:</p>
 
     <code>
-      sudo transactional-update -c pkg install kernel-firmware-amdgpu libdrm_amdgpu1
-      libdrm_amdgpu1-32bit libdrm_radeon1 libdrm_radeon1-32bit libvulkan_radeon
-      libvulkan_radeon-32bit libvulkan1 libvulkan1-32bit
+      sudo transactional-update -c pkg install kernel-firmware-amdgpu libdrm_amdgpu1 libdrm_amdgpu1-32bit libdrm_radeon1
+      libdrm_radeon1-32bit libvulkan_radeon libvulkan_radeon-32bit libvulkan1 libvulkan1-32bit
     </code>
 
     <h3 id="nvidia">Intel</h3>
@@ -75,42 +66,35 @@ import Section from "../components/Section.vue";
     <p>To install INTEL drivers you can run:</p>
 
     <code>
-      sudo transactional-update -c pkg install kernel-firmware-intel libdrm_intel1
-      libdrm_intel1-32bit libvulkan1 libvulkan1-32bit libvulkan_intel
-      libvulkan_intel-32bit
+      sudo transactional-update -c pkg install kernel-firmware-intel libdrm_intel1 libdrm_intel1-32bit libvulkan1
+      libvulkan1-32bit libvulkan_intel libvulkan_intel-32bit
     </code>
 
     <h2 id="update-flatpak">To update to Flatpak 1.15+</h2>
 
     <p>
-      If you want to play League of Legends, you'll need to install Lutris (or any other
-      similar app) and install the game through Proton. But you'll not be able to run the
-      game because you'll need the Flatpak 1.15+ (<strong
+      If you want to play League of Legends, you'll need to install Lutris (or any other similar app) and install the
+      game through Proton. But you'll not be able to run the game because you'll need the Flatpak 1.15+ (<strong
         ><a href="https://github.com/flatpak/flatpak/pull/5082">check here</a></strong
       >)
     </p>
 
-    <p>
-      You can install Flatpak 1.15.2 from my OBS repository while it is not updated on
-      official repositories yet.
-    </p>
+    <p>You can install Flatpak 1.15.2 from my OBS repository while it is not updated on official repositories yet.</p>
 
     <code>
       zypper addrepo
       https://download.opensuse.org/repositories/home:DenysMadureira/openSUSE_Tumbleweed/home:DenysMadureira.repo
-    </code>
-    <code
-      >sudo transactional-update -c shell
+      <br />
+      sudo transactional-update -c shell
       <br />
       zypper dup --allow-vendor-change
-      </code
-    >
+    </code>
 
     <h2 id="add-dictionaries">Add dictionaries</h2>
 
     <p>
-      With MicroOS you don't have any dictionary pre-installed, for it you should install
-      any of them. I recommend install <em>myspell</em>. You can install it with:
+      With MicroOS you don't have any dictionary pre-installed, for it you should install any of them. I recommend
+      install <em>myspell</em>. You can install it with:
     </p>
 
     <code> sudo transactional-update -c pkg install myspell-en_US</code>
@@ -122,72 +106,96 @@ import Section from "../components/Section.vue";
     <h2 id="enable-zram">Enable Zram</h2>
 
     <p>
-      If you don't have enough RAM available and need more, since MicroOS doesn't install
-      SWAP partition, you can simple enable ZRAM if you don't mind to use your disk and
-      CPU to it.
+      If you don't have enough RAM available and need more, since MicroOS doesn't install SWAP partition, you can simple
+      enable ZRAM if you don't mind to use your disk and CPU to it.
     </p>
 
     <code>sudo transactional-update -c pkg install systemd-zram-service</code>
 
-    <p>
-      And then you need to enable it. In the next time you reboot your machine it will be
-      working.
-    </p>
+    <p>And then you need to enable it. In the next time you reboot your machine it will be working.</p>
 
     <code>systemctl enable zramswap</code>
 
     <h2 id="enable-plymouth">Enable Plymouth</h2>
 
     <p>
-      If you don't want to see that bunch of messages when staring your computer you can
-      just install plymouth. It will be configured and enabled automatically after
-      install.
+      If you don't want to see that bunch of messages when staring your computer you can just install plymouth. It will
+      be configured and enabled automatically after install.
     </p>
 
-    <code
-      >sudo transactional-update -c pkg install plymouth plymouth-branding-openSUSE</code
-    >
+    <code>sudo transactional-update -c pkg install plymouth plymouth-branding-openSUSE</code>
 
     <h2 id="install-akonadi">Install Akonadi suite</h2>
 
-    <p>
-      If you want, you can install KMail, Kalendar and Akregator to have the essential apps from Akonadi suite.
-    </p>
+    <p>If you want, you can install KMail, Kalendar and Akregator to have the essential apps from Akonadi suite.</p>
 
-    <code
-      >sudo transactional-update -c shell
+    <code>
+      sudo transactional-update -c shell
       <br />
-      zypper --non-interactive al ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook knotes korganizer 
+      zypper --non-interactive al ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook
+      knotes korganizer
       <br />
       zypper --non-interactive install --recommends akregator kmail kalendar
       <br />
-      zypper --non-interactive rl ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook knotes korganizer
+      zypper --non-interactive rl ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook
+      knotes korganizer
       <br />
       systemctl enable mariadb
-      </code
-    >
+    </code>
 
     <h2 id="install-drive">Install and enable Google Drive integration</h2>
 
-    <p>
-      For being able to use KDE Plasma + Google Drive native integration you should install the following packages.
-    </p>
+    <p>For being able to use KDE Plasma + Google Drive native integration you should install the following packages.</p>
 
-    <code
-      >sudo transactional-update -c pkg install kaccounts-integration kaccounts-providers kio-gdrive</code
-    >
+    <code>sudo transactional-update -c pkg install kaccounts-integration kaccounts-providers kio-gdrive</code>
   </Section>
 
   <Section title="Tricks" subtitle="And here are some">
-    <h2 id="link-qtdbus">Enable Plymouth</h2>
+    <h2 id="link-qtdbus">Create a copy of qdbus binary</h2>
 
     <p>
-      The binary of qdbus in openSUSE is called qdbus-qt5 but in some distros is called
-      only qdbus so, because of this, some custom widgets may not work. A simple solution
-      is just create a copy of it with the following command:
+      The binary of qdbus in openSUSE is called qdbus-qt5 but in some distros is called only qdbus so, because of this,
+      some custom widgets may not work. A simple solution is just create a copy of it with the following command:
     </p>
 
     <code>cp /usr/bin/qdbus-qt5 /usr/bin/qdbus</code>
+
+    <h2 id="flatpak-overrides">Flatpak overrides</h2>
+
+    <p>For better integrate flatpaks with your desktop, I usually do this overrides.</p>
+
+    <p>First we need to create a <strong>global</strong> override file</p>
+
+    <code>
+      mkdir -p $HOME/.local/share/flatpak/overrides/
+      <br />
+      touch $HOME/.local/share/flatpak/overrides/global
+    </code>
+
+    <p>And then we add these content</p>
+
+    <code>
+      [Context]
+      <br />
+      filesystems=xdg-config/gtk-3.0:ro;~/.icons:ro;~/.themes:ro;~/.local/share/icons:ro
+      <br />
+      <br />
+      [Environment]
+      <br />
+      GTK_USE_PORTAL=1
+      <br />
+      XDG_CURRENT_DESKTOP=KDE
+      <br />
+      <br />
+      [System Bus Policy]
+      <br />
+      com.canonical.AppMenu.Registrar=talk
+      <br />
+      <br />
+      [Session Bus Policy]
+      <br />
+      com.canonical.AppMenu.Registrar=talk
+    </code>
   </Section>
 </template>
 

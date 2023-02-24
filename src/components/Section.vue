@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ title: string; subtitle: string; image?: boolean }>();
+defineProps<{ title: string; subtitle: string; image?: boolean }>()
 </script>
 
 <template>
@@ -13,7 +13,9 @@ defineProps<{ title: string; subtitle: string; image?: boolean }>();
         <slot></slot>
       </div>
 
-      <slot name="image"></slot>
+      <div class="image-slot">
+        <slot name="image"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -40,6 +42,12 @@ defineProps<{ title: string; subtitle: string; image?: boolean }>();
   &:nth-child(even) {
     background-color: #973a84;
     color: #fff;
+  }
+
+  @media only screen and (max-width: 820px) {
+    .image-slot {
+      display: none;
+    }
   }
 }
 </style>

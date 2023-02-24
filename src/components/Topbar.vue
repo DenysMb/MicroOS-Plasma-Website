@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MicroOSLogo from "../assets/microos.svg";
+import MicroOSLogo from '../assets/microos.svg'
 </script>
 
 <template>
@@ -27,8 +27,10 @@ import MicroOSLogo from "../assets/microos.svg";
   padding: 16px 32px;
 
   svg {
-    width: 48px;
-    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    max-width: 48px;
+    max-height: 48px;
     fill: #fff;
 
     @media (prefers-color-scheme: dark) {
@@ -51,6 +53,12 @@ import MicroOSLogo from "../assets/microos.svg";
   @media (prefers-color-scheme: dark) {
     background-color: #fff;
     color: #213547;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .links {
+      flex-direction: column;
+    }
   }
 }
 </style>

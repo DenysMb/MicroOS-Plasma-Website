@@ -1,34 +1,30 @@
 <script setup lang="ts">
-import Section from "../components/Section.vue";
-import Card from "../components/Card.vue";
+import Section from '../components/Section.vue'
+import Card from '../components/Card.vue'
 </script>
 
 <template>
-  <Section
-    title="MicroOS + KDE Plasma"
-    subtitle="Make the best of your openSUSE"
-    :image="true"
-  >
+  <Section title="MicroOS + KDE Plasma" subtitle="Make the best of your openSUSE" :image="true">
     <template #image>
       <img src="../assets/desktop.png" alt="MicroOS Desktop" />
     </template>
 
     <div class="presentation">
       <p>
-        This just contains some suggestion of how you can improve your experience with
-        openSUSE MicroOS + KDE Plasma <strong>in my opinion</strong>.
+        This just contains some suggestion of how you can improve your experience with openSUSE MicroOS + KDE Plasma
+        <strong>in my opinion</strong>.
       </p>
       <p>
-        I will suggest some tweaks and some essential Flatpak apps to install to make you
-        have the best "install and forget" experience after following these suggestions.
+        I will suggest some tweaks and some essential Flatpak apps to install to make you have the best "install and
+        forget" experience after following these suggestions.
       </p>
     </div>
   </Section>
 
   <Section title="Applications" subtitle="To improve your productivity">
     <p>
-      I usually always install these three applications first, because in my opinion they
-      are more than needed to a better usage of your computer. They are:
+      I usually always install these three applications first, because in my opinion they are more than needed to a
+      better usage of your computer. They are:
     </p>
 
     <div class="row">
@@ -57,8 +53,8 @@ import Card from "../components/Card.vue";
     <p>
       If you want to game, you should try to install these applications:
       <br />
-      Be aware that, if you want to play <em>League of Legends</em>, you should install
-      Flatpak 1.15+ (<strong><a href="#">Click here to learn how</a></strong
+      Be aware that, if you want to play <em>League of Legends</em>, you should install Flatpak 1.15+ (<strong
+        ><a href="#">Click here to learn how</a></strong
       >).
     </p>
 
@@ -81,7 +77,6 @@ import Card from "../components/Card.vue";
 </template>
 
 <style lang="scss" scoped>
-
 .presentation {
   display: flex;
   flex-direction: column;
@@ -90,6 +85,8 @@ import Card from "../components/Card.vue";
 }
 
 .row {
+  display: flex;
+  flex-wrap: wrap;
   padding: 32px 0;
   gap: 32px;
 }
