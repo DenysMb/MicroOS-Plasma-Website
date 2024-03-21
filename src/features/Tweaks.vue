@@ -33,7 +33,7 @@ import Section from '../components/Section.vue'
 
     <p>Then you can install the drivers with:</p>
 
-    <code> sudo transactional-update -c pkg install x11-video-nvidiaG06 nvidia-glG06 </code>
+    <code> sudo transactional-update -i pkg in nvidia-driver-G06-kmp-default nvidia-video-G06 nvidia-gl-G06 nvidia-compute-G06 </code>
 
     <p class="important">
       Please make sure to check the correct driver here in the
@@ -57,7 +57,7 @@ import Section from '../components/Section.vue'
     <p>To install AMD drivers you can run:</p>
 
     <code>
-      sudo transactional-update -c pkg install kernel-firmware-amdgpu libdrm_amdgpu1 libdrm_amdgpu1-32bit libdrm_radeon1
+      sudo transactional-update -i pkg install kernel-firmware-amdgpu libdrm_amdgpu1 libdrm_amdgpu1-32bit libdrm_radeon1
       libdrm_radeon1-32bit libvulkan_radeon libvulkan_radeon-32bit libvulkan1 libvulkan1-32bit
     </code>
 
@@ -66,28 +66,8 @@ import Section from '../components/Section.vue'
     <p>To install INTEL drivers you can run:</p>
 
     <code>
-      sudo transactional-update -c pkg install kernel-firmware-intel libdrm_intel1 libdrm_intel1-32bit libvulkan1
+      sudo transactional-update -i pkg install kernel-firmware-intel libdrm_intel1 libdrm_intel1-32bit libvulkan1
       libvulkan1-32bit libvulkan_intel libvulkan_intel-32bit
-    </code>
-
-    <h2 id="update-flatpak">To update to Flatpak 1.15+</h2>
-
-    <p>
-      If you want to play League of Legends, you'll need to install Lutris (or any other similar app) and install the
-      game through Proton. But you'll not be able to run the game because you'll need the Flatpak 1.15+ (<strong
-        ><a href="https://github.com/flatpak/flatpak/pull/5082">check here</a></strong
-      >)
-    </p>
-
-    <p>You can install Flatpak 1.15.2 from my OBS repository while it is not updated on official repositories yet.</p>
-
-    <code>
-      zypper addrepo
-      https://download.opensuse.org/repositories/home:DenysMadureira/openSUSE_Tumbleweed/home:DenysMadureira.repo
-      <br />
-      sudo transactional-update -c shell
-      <br />
-      zypper dup --allow-vendor-change
     </code>
 
     <h2 id="add-dictionaries">Add dictionaries</h2>
@@ -97,7 +77,7 @@ import Section from '../components/Section.vue'
       install <em>myspell</em>. You can install it with:
     </p>
 
-    <code> sudo transactional-update -c pkg install myspell-en_US</code>
+    <code> sudo transactional-update -i pkg install myspell-en_US</code>
 
     <p>You can search for all available dictionaries with:</p>
 
@@ -110,7 +90,7 @@ import Section from '../components/Section.vue'
       enable ZRAM if you don't mind to use your disk and CPU to it.
     </p>
 
-    <code>sudo transactional-update -c pkg install systemd-zram-service</code>
+    <code>sudo transactional-update -i pkg install systemd-zram-service</code>
 
     <p>And then you need to enable it. In the next time you reboot your machine it will be working.</p>
 
@@ -124,30 +104,6 @@ import Section from '../components/Section.vue'
     </p>
 
     <code>sudo transactional-update -c pkg install plymouth plymouth-branding-openSUSE</code>
-
-    <h2 id="install-akonadi">Install Akonadi suite</h2>
-
-    <p>If you want, you can install KMail, Kalendar and Akregator to have the essential apps from Akonadi suite.</p>
-
-    <code>
-      sudo transactional-update -c shell
-      <br />
-      zypper --non-interactive al ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook
-      knotes korganizer
-      <br />
-      zypper --non-interactive install --recommends akregator kmail kalendar
-      <br />
-      zypper --non-interactive rl ktnef kitinerary kleopatra pim-data-exporter pim-sieve-editor kontact kaddressbook
-      knotes korganizer
-      <br />
-      systemctl enable mariadb
-    </code>
-
-    <h2 id="install-drive">Install and enable Google Drive integration</h2>
-
-    <p>For being able to use KDE Plasma + Google Drive native integration you should install the following packages.</p>
-
-    <code>sudo transactional-update -c pkg install kaccounts-integration kaccounts-providers kio-gdrive</code>
   </Section>
 
   <Section title="Tricks" subtitle="And here are some">
@@ -158,7 +114,7 @@ import Section from '../components/Section.vue'
       some custom widgets may not work. A simple solution is just create a copy of it with the following command:
     </p>
 
-    <code>cp /usr/bin/qdbus-qt5 /usr/bin/qdbus</code>
+    <code>ln -s /usr/bin/qdbus6 /usr/bin/qdbus</code>
 
     <h2 id="flatpak-overrides">Flatpak overrides</h2>
 
@@ -169,7 +125,7 @@ import Section from '../components/Section.vue'
     <code>
       mkdir -p $HOME/.local/share/flatpak/overrides/
       <br />
-      touch $HOME/.local/share/flatpak/overrides/global
+      nano $HOME/.local/share/flatpak/overrides/global
     </code>
 
     <p>And then we add these content</p>
@@ -196,6 +152,16 @@ import Section from '../components/Section.vue'
       <br />
       com.canonical.AppMenu.Registrar=talk
     </code>
+
+    <p>This will make your flatpak applications user your theme and icon and also integrate them with appmenu</p>
+  </Section>
+
+  <Section title="Optional changes" subtitle="And here are some">
+    <h2 id="flatpak-overrides">X11 Plasma Session</h2>
+    
+    <p>If you are facing issues with Wayland or just miss the X11 session, you can easily install it with</p>
+
+    <code>sudo transactional-update -i pkg install plasma6-session-x11</code>
   </Section>
 </template>
 

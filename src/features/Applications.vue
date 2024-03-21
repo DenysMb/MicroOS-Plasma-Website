@@ -4,14 +4,14 @@ import Card from '../components/Card.vue'
 </script>
 
 <template>
-  <Section title="MicroOS + KDE Plasma" subtitle="Make the best of your openSUSE" :image="true">
+  <Section title="openSUSE Kalpa" subtitle="Make the best of your openSUSE" :image="true">
     <template #image>
       <img src="../assets/desktop.png" alt="MicroOS Desktop" />
     </template>
 
     <div class="presentation">
       <p>
-        This just contains some suggestion of how you can improve your experience with openSUSE MicroOS + KDE Plasma
+        This just contains some suggestion of how you can improve your experience with openSUSE openSUSE Kalpa
         <strong>in my opinion</strong>.
       </p>
       <p>
@@ -52,10 +52,6 @@ import Card from '../components/Card.vue'
 
     <p>
       If you want to game, you should try to install these applications:
-      <br />
-      Be aware that, if you want to play <em>League of Legends</em>, you should install Flatpak 1.15+ (<strong
-        ><a href="#">Click here to learn how</a></strong
-      >).
     </p>
 
     <div class="row">
