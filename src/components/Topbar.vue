@@ -6,7 +6,7 @@ import MicroOSLogo from '../assets/microos.svg'
   <div class="topbar">
     <div class="logo">
       <MicroOSLogo />
-      <h2>MicroOS + KDE Plasma</h2>
+      <h2>openSUSE Kalpa</h2>
     </div>
 
     <div class="links">

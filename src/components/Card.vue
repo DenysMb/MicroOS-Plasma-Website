@@ -8,7 +8,7 @@ defineProps<{ title: string; flathub: string; url: string; image: string }>();
 
     <img :src="image" :alt="title" />
 
-    <a class="button" :href="url">Download</a>
+    <a class="button" :href="`appstream://${url}`">Download</a>
   </div>
 </template>
 
